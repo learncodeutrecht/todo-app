@@ -1,0 +1,18 @@
+# gitigonre will ignore all the files that dosn't have to be in github
+
+npm_modules
+bower_components
+trash
+Error.log
+.DS_Store
+.vscode/*
+.sass-cache
+.tmp
+.rvmrc
+.trashes
+*~
+
+# Optional things
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
