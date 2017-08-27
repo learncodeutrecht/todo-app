@@ -1,8 +1,44 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!DOCTYPE html> 
+<html> 
+  <body>
+    <h1>Hello world!</h1>
+    <div>
+      <input type="text" id="db-id-1" value="test1"> <button class="update-btn">update</button>
+    </div>
+    <div>
+      <input type="text" id="db-id-2"  value="test2"> <button class="update-btn">update</button>
+    </div>
+    <div>
+      <input type="text" id="db-id-3"  value="test3"> <button class="update-btn">update</button>
+    </div>
+    <div>
+      <input type="text" id="db-id-4"  value="test4"> <button class="update-btn">update</button>
+    </div>
+    <script>
+      var app = (function(){ 
+        var data = {};
+        var addUpdateEventHandlers = function() {
+          var buttons = document.getElementsByClassName("update-btn");
+          for(var i=0; i in buttons; i++){
+            var button = buttons[i];
+            button.addEventListener("click", function (e){
+              var inp = e.target.previousElementSibling;
+              console.log(inp.value);
+              data[inp.id] = inp.value;
 
-<h1>Hello world!</h1>
+            });
+          }
+        }
+        var getData = function(){
+          return data;
+        }
+        return {
+          addUpdateEventHandlers: addUpdateEventHandlers,
+          getData: getData,
+        }
+      })();
+      app.addUpdateEventHandlers();
 
-</body>
+    </script>
+  </body>
 </html>
