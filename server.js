@@ -1,11 +1,16 @@
-var http = require('http')
-,       fs = require('fs');
+var http = require('http'),
+    fs = require('fs'),
+    express = require('express');
 
+app = express();
 
-var server = http.createServer(function(req, res){
+app.use("/", express.static(__dirname + "/static"))
+
+/*app.get('/', function(req, res){
   var stream = fs.createReadStream('index.html');
   stream.pipe(res);
 });
-server.listen(8080);
+*/
+app.listen(8080);
 
 console.log("Please go to http://localhost:8080/");

@@ -1,6 +1,6 @@
 # gitigonre will ignore all the files that dosn't have to be in github
 
-npm_modules
+node_modules
 bower_components
 trash
 Error.log
