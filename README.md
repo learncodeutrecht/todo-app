@@ -8,10 +8,16 @@ To have the application working, please follow these steps:
 
 2- Command-Line: git clone https://github.com/learncodeutrecht/todo-app.git
 
-3- Command-Line: npm start
+3- Command-Line: cd todo-app
 
-4- Browser (like Chrome):  http://localhost:8080/
+4- Command-Line: npm start
 
-5- you will see Hello world on your broswer. 
+5- Browser (like Chrome):  http://localhost:8080/
 
-6- If you need any help please let me know! 
+6- you will see Hello world on your broswer. 
+
+
+
+ If you need any help please let me know! 
+
+ Happy coding! :-)
