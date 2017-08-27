@@ -10,11 +10,13 @@ To have the application working, please follow these steps:
 
 3- Command-Line: cd todo-app
 
-4- Command-Line: npm start
+4- npm install express
 
-5- Browser (like Chrome):  http://localhost:8080/
+5- Command-Line: npm start
 
-6- you will see Hello world on your broswer. 
+6- Browser (like Chrome):  http://localhost:8080/
+
+7- you will see Hello world on your broswer. 
 
 
 
