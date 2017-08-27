@@ -1,0 +1,12 @@
+{
+  "name": "lerentocode",
+  "version": "1.0.0",
+  "description": "crud poject",
+  "main": "index.js",
+  "scripts": {
+  	"start": "node server.js",
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
