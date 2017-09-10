@@ -15,3 +15,16 @@ var getData = function(){
     return data;
 }
 addUpdateEventHandlers();
+
+var deleteButton = document.getElementByClassName("delete").addEventListener("click", function(i){ 
+    if (i.parent) {
+        this.Delete = function (item) {
+            // reinitiates the data variable as empty and thus removes the data in it
+            data = {};
+            // Delete the current row
+            this.data.splice(i, 1);
+            // Display the new list
+            this.FetchAll();
+        };
+    }
+);
