@@ -1,5 +1,5 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html>
   <body>
     <h1>Hello world!</h1>
     <div>
@@ -14,6 +14,27 @@
     <div>
       <input type="text" id="db-id-4"  value="test4"> <button class="update-btn">update</button>
     </div>
+
+    <form action="createUser" method="post" enctype="multipart/form-data">
+      <!-- <fieldset> -->
+        <label for="name"> Name:</label>
+        <input type="text" id="name" name="name"
+        placeholder="Enter your full name"/>
+        <button class="update-btn">update</button>
+        <br/>
+        <label for ="email"> Email:</label>
+        <input type="email" id = "email" name="email"
+        placeholder="Enter your email address"/>
+        <button class="update-btn">update</button>
+        <br/>
+        <label for ="description">Description:</label>
+        <input type="text" id="description" name="description"
+        placeholder="Enter a short description about yourself"/>
+        <button class="update-btn">update</button>
+        <br/>
+    <!-- </fieldset> -->
+  </form>
+
     <script src="js/main.js">
 
     </script>
