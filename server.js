@@ -14,22 +14,30 @@ app.get('/test', function (req, res) {
 //so if you send a Post request to /todo you get a response of "Add Todo"
 //these should be called from main.js 
 //get to load the data and the others to modify it 
+
 app.route("/todo")
-  //CREATE
+  //CREATE a todo
   .post(function (req, res) {
     res.send('Add Todo')
   })
-  //READ
+  //READ get all todos
   .get(function (req, res) {
   res.send('show todos')
   })
-  //UPDATE
+
+
+app.route("/todo/:id")
+  //READ get a specific todo
+  .get(function (req, res) {
+  res.send('show todo:'+ req.params.id)
+  })
+  //UPDATE a todo
   .put(function (req, res) {
-    res.send('Update the Todo')
+    res.send('Update the Todo:'+ req.params.id)
   })
   //DELETE
   .delete(function (req, res) {
-  res.send('Got a DELETE request at /todo')
+  res.send('delete todo :'+ req.params.id)
   })
 
 /*app.get('/', function(req, res){
