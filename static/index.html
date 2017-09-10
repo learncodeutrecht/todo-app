@@ -1,21 +1,93 @@
-<!DOCTYPE html> 
-<html> 
-  <body>
-    <h1>Hello world!</h1>
-    <div>
-      <input type="text" id="db-id-1" value="test1"> <button class="update-btn">update</button> <button class="delete">delete</button>
-    </div>
-    <div>
-      <input type="text" id="db-id-2"  value="test2"> <button class="update-btn">update</button> <button class="delete">delete</button>
-    </div>
-    <div>
-      <input type="text" id="db-id-3"  value="test3"> <button class="update-btn">update</button> <button class="delete">delete</button>
-    </div>
-    <div>
-      <input type="text" id="db-id-4"  value="test4"> <button class="update-btn">update</button> <button class="delete">delete</button>
-    </div>
+<!DOCTYPE html>
+<html>
 
-    <script src='js/main.js'></script>
-      
-  </body>
+<style>
+    
+    #main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient( rgba(0, 0, 0, 0.2), rgba( 0, 0 , 0, 0.2)), url("background.jpg");
+        background-size: cover;
+        height: 100vh;
+    }
+    
+    input {
+        font-size: 23px;
+        border: none;
+        opacity: 1;
+        background-color: transparent;
+        font-style: italic;
+        font-family: courier;
+    }
+    
+    h1 {
+        font-family: courier;
+        font-size: 66px;
+        text-shadow: 0 0 2px white;
+    }
+    
+    button {
+        font-family: courier;
+        font-size: 23px;
+    }
+    
+    .update-btn {
+        background-color: #00FA9A;
+        background: url("update.png") no-repeat;
+        background-size: cover;
+        border: none;
+        margin: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .delete {
+        background-color: #F08080;
+        background: url("delete.png") no-repeat;
+        background-size: cover;
+        border: none;
+        float: right;
+        margin: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .field {
+        border: 1px;
+        background: grey;
+        opacity: 0.5;
+    }
+    
+    </style>
+    
+<body>
+    <div id="main">
+        <h1>TO DO APP</h1>
+            <div class="field">
+                <input type="text" id="db-id-1" value="To Do Title 1">
+                <button class="update-btn"></button>
+                <button class="delete"></button>
+            </div>
+            <div class="field">
+                <input type="text" id="db-id-2" value="To Do Title 2">
+                <button class="update-btn"></button>
+                <button class="delete"></button>
+            </div>
+            <div class="field">
+                <input type="text" id="db-id-3" value="To Do Title 3">
+                <button class="update-btn"></button>
+                <button class="delete"></button>
+            </div>
+            <div class="field">
+                <input type="text" id="db-id-4" value="To Do Title 4">
+                <button class="update-btn"></button>
+                <button class="delete"></button>
+            </div>
+
+            <script src='js/main.js'></script>
+        </div>
+    </body>
+
 </html>
