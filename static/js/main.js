@@ -29,3 +29,13 @@ var addDeleteEventHandlers = function() {
 }
 
 addDeleteEventHandlers();
+
+var addCreateEventHandlers = function(){
+  var createButton = document.getElementsByClassName("create-btn")[0];
+  console.log(createButton);
+  createButton.addEventListener("click", function(e){
+    var description = e.target.previousElementSibling.value;
+    console.log(description);
+  })
+}
+addCreateEventHandlers();
