@@ -16,7 +16,7 @@ exports.init = function(){
 		    if (err) throw err;
 		    console.log("database created");
 			con = getconnnection();
-			con.query("CREATE TABLE todos (name VARCHAR(255), isdone BOOLEAN)",function(err, result){
+			con.query("CREATE TABLE todos (description VARCHAR(255), isdone BOOLEAN)",function(err, result){
 				if (err) throw err;
 		    	console.log("table created");
 			}
