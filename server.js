@@ -1,13 +1,30 @@
 var http = require('http'),
     fs = require('fs'),
-    express = require('express');
+    express = require('express'),
+    mysql = require('mysql'),
+    user = "root",
+    password = "root",
+    host = "localhost",
+    db = "todoapp",
+    connection = mysql.createConnection({
+        host: host,
+        user: user,
+        password: password,
+        database: db
+    });
+connection.connect(function (err) {
+    if (err) {
+        console.log("Database connect error");
+    }
+});
+
 
 app = express();
 
 app.use("/", express.static(__dirname + "/static"))
 
 app.get('/test', function (req, res) {
-  res.send('Hello World!')
+    res.send('Hello World!')
 })
 
 //this maps http://localhost:8080/todo to the callback functions passed
@@ -16,29 +33,32 @@ app.get('/test', function (req, res) {
 //get to load the data and the others to modify it 
 
 app.route("/todo")
-  //CREATE a todo
-  .post(function (req, res) {
-    res.send('Add Todo')
-  })
-  //READ get all todos
-  .get(function (req, res) {
-  res.send('show todos')
-  })
+//CREATE a todo
+    .post(function (req, res) {
+        res.send('Add Todo')
+    })
+//READ get all todos
+    .get(function (req, res) {
+        res.send('show todos')
+    })
 
 
 app.route("/todo/:id")
-  //READ get a specific todo
-  .get(function (req, res) {
-  res.send('show todo:'+ req.params.id)
-  })
-  //UPDATE a todo
-  .put(function (req, res) {
-    res.send('Update the Todo:'+ req.params.id)
-  })
-  //DELETE
-  .delete(function (req, res) {
-  res.send('delete todo :'+ req.params.id)
-  })
+//READ get a specific todo
+    .get(function (req, res) {
+        connection.query("select * from todos where id=" + req.params.id,
+            function(err, result, fields){
+                res.send('show todo:'+ result[0].description);
+            });
+    })
+//UPDATE a todo
+    .put(function (req, res) {
+        res.send('Update the Todo:'+ req.params.id)
+    })
+//DELETE
+    .delete(function (req, res) {
+        res.send('delete todo :'+ req.params.id)
+    })
 
 /*app.get('/', function(req, res){
   var stream = fs.createReadStream('index.html');
