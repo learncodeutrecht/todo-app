@@ -6,6 +6,13 @@ var user= "root";
 var password = "root";
 var db = "todoapp";
 
+exports.config = {
+    host: host,
+    user: user,
+    password: password,
+    db: db
+};
+
 exports.init = function(){
 	console.log("start database init");
 

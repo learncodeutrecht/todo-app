@@ -39,7 +39,10 @@ app.route("/todo")
     })
 //READ get all todos
     .get(function (req, res) {
-        res.send('show todos')
+        connection.query("select * from todos", function(err, results, fields){
+            res.send(JSON.stringify(results));
+            console.log(results);
+        });
     })
 
 
@@ -47,8 +50,8 @@ app.route("/todo/:id")
 //READ get a specific todo
     .get(function (req, res) {
         connection.query("select * from todos where id=" + req.params.id,
-            function(err, result, fields){
-                res.send('show todo:'+ result[0].description);
+            function(err, results, fields){
+                res.send(JSON.stringify(results));
             });
     })
 //UPDATE a todo

@@ -1,36 +1,46 @@
-var data = {};
-var addUpdateEventHandlers = function() {
-    var buttons = document.getElementsByClassName("update-btn");
-    for(var i=0; i in buttons; i++){
-        var button = buttons[i];
-        button.addEventListener("click", function (e){
-            var inp = e.target.previousElementSibling;
-            console.log(inp.value);
-            data[inp.id] = inp.value;
-
-        });
-    }
-}
 var getData = function(){
-    return data;
-}
-addUpdateEventHandlers();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.response);
+            var newDiv,
+                input,
+                updateBtn,
+                delBtn;
+            var main = document.getElementById("main");
+            response.forEach(function(e){
+                newDiv = document.createElement("div");
+                input = document.createElement("input");
+                updateBtn = document.createElement("button");
+                delBtn = document.createElement("button");
+                newDiv.setAttribute("class", "field");
+                input.setAttribute("id", e.id);
+                input.value = e.description;
+                updateBtn.setAttribute("class", "update-btn");
 
-var addDeleteEventHandlers = function() {
+                updateBtn.addEventListener("click", function (e){
+                    var inp = e.target.previousElementSibling;
+                    console.log(inp.value);
+                    /*TODO update db row*/
 
-    var deleteButtons = document.getElementsByClassName("delete");
-    for(var i=0; i in deleteButtons; i++ ){
-        var deleteButton = deleteButtons[i];
-        deleteButton.addEventListener("click", function(i){
-            i.target.parentElement.remove();
-
-        });
+                });
+                delBtn.setAttribute("class", "delete");
+                delBtn.addEventListener("click", function(i){
+                    /*TODO Remove db row */
+                    i.target.parentElement.remove();
+                });
+                newDiv.appendChild(input);
+                newDiv.appendChild(updateBtn);
+                newDiv.appendChild(delBtn);
+                main.appendChild(newDiv);
+            });
+        }
     }
+    xhttp.open("GET", "todo",true);
+    xhttp.send();
 }
 
-addDeleteEventHandlers();
-
-var addCreateEventHandlers = function(){
+/*var addCreateEventHandlers = function(){
   var createButton = document.getElementsByClassName("create-btn")[0];
   console.log(createButton);
   createButton.addEventListener("click", function(e){
@@ -39,3 +49,7 @@ var addCreateEventHandlers = function(){
   })
 }
 addCreateEventHandlers();
+*/
+document.addEventListener("DOMContentLoaded", function(){
+    getData();
+}, false);

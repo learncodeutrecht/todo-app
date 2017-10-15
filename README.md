@@ -12,12 +12,18 @@ To have the application working, please follow these steps:
 
 4- npm install express
 
-5- Command-Line: npm start
+5- npm install
 
-6- Browser (like Chrome):  http://localhost:8080/
+6- node databaseinit.js
+initialize the database
 
-7- you will see Hello world on your broswer. 
+7- mysql -D todoapp < dbdump -u root -p
+fill the database with dummy data
 
+8- Command-Line: npm start
+start the server
+
+9- Browser (like Chrome):  http://localhost:8080/
 
 
  If you need any help please let me know! 
